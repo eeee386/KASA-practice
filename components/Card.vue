@@ -1,18 +1,23 @@
 <template>
-  <div>
-    <img :src=card.img.src :alt=card.img.alt :title=card.img.title>
-    <img :src=card.thumbnail.src :alt=card.thumbnail.alt :title=card.thumbnail.title>
-    <h3>{{card.title}}</h3>
-    <h4>{{card.subTitle}}</h4>
-    <div v-html="card.content" />
-    <div v-html="card.footer" />
+  <div class="card-wrapper">
+    <img class="card-image" :src=card.img.src :alt=card.img.alt :title=card.img.title>
+    <div class="card-title-part">
+      <img class="card-thumbnail" :src=card.thumbnail.src :alt=card.thumbnail.alt :title=card.thumbnail.title>
+      <div class="card-title-subtitle">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <h4 class="card-subtitle">{{ card.subTitle }}</h4>
+      </div>
+    </div>
+    <div class="card-content" v-html="card.content"/>
+    <div class="card-footer" v-html="card.footer"/>
   </div>
 </template>
 
 <script>
 export default {
   name: "Card",
-  props: {card:         {
+  props: {
+    card: {
       img: {
         alt: String,
         src: String,
@@ -26,7 +31,77 @@ export default {
         alt: String,
         src: String,
         title: String,
-      }
-    }}
+      },
+      width: String,
+      height: String,
+    }
+  }
 }
 </script>
+
+<style scoped>
+.card-wrapper {
+  width: 327px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(45, 45, 45, 0.2);
+  border-radius: 4px;
+}
+
+.card-image {
+  object-fit: cover;
+}
+
+.card-content {
+  overflow: hidden;
+  height: 188px;
+}
+
+.card-content * {
+  text-overflow: ellipsis;
+}
+
+.card-footer {
+  height: 68px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title-part {
+  margin-top: 24px;
+  margin-left: 24px;
+  display: flex;
+}
+
+.card-thumbnail {
+  border-radius: 50%;
+}
+
+.card-title-subtitle{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 24px;
+}
+
+.card-title {
+  font-family: Lora,serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  color: #2D2D2D;
+  margin: 0;
+}
+
+.card-subtitle {
+  margin: 0;
+  font-family: Roboto,serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #6E6E6E;
+}
+</style>
