@@ -1,0 +1,24 @@
+{
+  "name": "kasa-practice",
+  "version": "1.0.0",
+  "description": "KASA",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeee386/KASA-practice.git"
+  },
+  "author": "Attila Sedon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eeee386/KASA-practice/issues"
+  },
+  "homepage": "https://github.com/eeee386/KASA-practice#readme",
+  "dependencies": {
+    "nuxt": "^2.14.11"
+  }
+}
