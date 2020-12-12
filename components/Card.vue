@@ -55,11 +55,8 @@ export default {
 
 .card-content {
   overflow: hidden;
-  height: 188px;
-}
-
-.card-content * {
-  text-overflow: ellipsis;
+  margin: 24px;
+  height: 140px;
 }
 
 .card-footer {
@@ -103,5 +100,16 @@ export default {
   font-size: 14px;
   line-height: 20px;
   color: #6E6E6E;
+}
+</style>
+
+<style>
+.card-content * {
+  text-overflow: ellipsis;
+  height: 140px;
+  margin:0;
+}
+.card-footer * {
+  margin-left: 24px;
 }
 </style>
