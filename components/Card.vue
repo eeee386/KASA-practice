@@ -1,15 +1,15 @@
 <template>
   <div class="card-wrapper" v-bind:class="card.classes && card.classes.cardWrapper">
-    <img class="card-image" :src=card.img.src :alt=card.img.alt :title=card.img.title>
-    <div class="card-title-part">
-      <img class="card-thumbnail" :src=card.thumbnail.src :alt=card.thumbnail.alt :title=card.thumbnail.title>
-      <div class="card-title-subtitle">
-        <h3 class="card-title">{{ card.title }}</h3>
-        <h4 class="card-subtitle">{{ card.subTitle }}</h4>
+    <img v-if="card.img" class="card-image" :src=card.img.src :alt=card.img.alt :title=card.img.title>
+    <div v-if="card.thumbnail || card.title || card.subTitle" class="card-title-part">
+      <img v-if="card.thumbnail" class="card-thumbnail" :src=card.thumbnail.src :alt=card.thumbnail.alt :title=card.thumbnail.title>
+      <div v-if="card.title || card.subTitle" class="card-title-subtitle">
+        <h3 v-if="card.title" class="card-title">{{ card.title }}</h3>
+        <h4 v-if="card.subTitle" class="card-subtitle">{{ card.subTitle }}</h4>
       </div>
     </div>
     <div class="card-content" v-html="card.content"/>
-    <div class="card-footer" v-html="card.footer"/>
+    <div v-if="card.footer" class="card-footer" v-html="card.footer"/>
   </div>
 </template>
 
@@ -44,7 +44,6 @@ export default {
 <style scoped>
 .card-wrapper {
   width: 327px;
-  height: 540px;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(45, 45, 45, 0.2);
@@ -65,6 +64,7 @@ export default {
   height: 68px;
   display: flex;
   align-items: center;
+  border-top: 1px solid rgba(45, 45, 45, 0.2);
 }
 
 .card-title-part {

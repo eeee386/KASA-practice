@@ -17,8 +17,4 @@ export default {
 </script>
 
 <style scoped>
-.card-list {
-  display: flex;
-  justify-content: space-around;
-}
 </style>
