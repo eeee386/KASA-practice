@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div v-for="card in cards">
-      <Card v-bind:card="card"/>
-    </div>
+  <div class="card-list">
+    <Card v-for="card in cards" v-bind:card="card"/>
   </div>
 </template>
 
@@ -17,3 +15,10 @@ export default {
   props: ["cards"]
 }
 </script>
+
+<style scoped>
+.card-list {
+  display: flex;
+  justify-content: space-around;
+}
+</style>

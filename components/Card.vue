@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper" v-bind:class="card.classes && card.classes.cardWrapper">
     <img class="card-image" :src=card.img.src :alt=card.img.alt :title=card.img.title>
     <div class="card-title-part">
       <img class="card-thumbnail" :src=card.thumbnail.src :alt=card.thumbnail.alt :title=card.thumbnail.title>
@@ -32,8 +32,10 @@ export default {
         src: String,
         title: String,
       },
-      width: String,
-      height: String,
+      classes: {
+        cardWrapper:  String,
+
+      }
     }
   }
 }
